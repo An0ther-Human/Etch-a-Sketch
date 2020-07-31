@@ -1,6 +1,7 @@
 const header = document.querySelector('h1');
 const container = document.querySelector('#container');
 let colorMode = 0;//0 is black and white only; 1 is rgb; 2 is rgb gradient
+let gridSize = 16;
 
 //Generates random color
 function getRandomColor(){
@@ -11,7 +12,6 @@ function getRandomColor(){
 }
 
 function makeNewGrid(){
-    const gridSize = prompt('Create a grid of size:', '16');
     container.setAttribute('style',`grid-template-columns: repeat(${gridSize}, auto)`)
     //Checks to see if the value the user input is valid
     if ((isNaN(gridSize) != false) || (gridSize== null)){
@@ -22,10 +22,8 @@ function makeNewGrid(){
             const newDiv = document.createElement('div')
             newDiv.className = 'grid';
             newDiv.id = i;
-            newDiv.style.backgroundColor = 'white';
-            newDiv.style.borderStyle = 'solid';
-            newDiv.style.borderWidth = 'thin';
-            newDiv.style.borderColor = 'black';
+            newDiv.style.backgroundColor = '#75776e';
+            newDiv.style.borderStyle = 'none'
             newDiv.style.display = 'inline-block';
             //data-insertNameHere attribute allows you to add custom data
             newDiv.setAttribute('data-counter',9);
@@ -71,6 +69,8 @@ function newGrid(){
     for(i = 0; i < grid.length; i++){
         grid[i].remove()
     }
+    //Asks for the new grid size
+    gridSize = prompt('Create a grid of size:', '16');
     makeNewGrid()
 }
 
@@ -90,7 +90,7 @@ clearSketch.addEventListener('click',wipeGrid);
 function wipeGrid(){
     const grid = document.querySelectorAll('.grid');
     for(i = 0; i < grid.length; i++){
-        grid[i].style.backgroundColor = 'white';
+        grid[i].style.backgroundColor = '#75776e';
         grid[i].style.filter = 'brightness(100%)';
         grid[i].setAttribute('data-counter', 9);
         grid[i].classList.remove('hasColor')
@@ -114,3 +114,4 @@ function newRGBGradientSketch(){
     colorMode = 2;
     newGrid();
 }
+makeNewGrid()
