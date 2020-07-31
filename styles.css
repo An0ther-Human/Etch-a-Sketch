@@ -1,5 +1,13 @@
+body{
+    margin: 0px;
+    text-align: center;
+}
 h1{
     text-align: center;
+    background-color: red;
+    color: gold;
+    padding: 10px;
+    margin: 0px;
 }
 
 #container{
@@ -11,7 +19,11 @@ h1{
     position: absolute;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, 0)
+    transform: translate(-50%, 0);
+    border: 100px;
+    border-color: 	red;
+    border-style: solid;
+    border-radius: 3%;
 }
 #btnContainer{
     text-align: center;
@@ -25,4 +37,30 @@ button{
 }
 button:hover{
     border: 1px solid rgb(179, 179, 179);
+}
+#etchSketch{
+    width: 640px;
+    height: 640px;
+    display: inline-block;
+}
+.knobs{
+    z-index: 9;
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    top: 580px;
+}
+
+#left-knob{
+    float: left;
+}
+
+#right-knob{
+    float: right;
 }
